@@ -8,6 +8,7 @@ let discordSdk: DiscordSDK | DiscordSDKMock;
 if (isEmbedded) {
   discordSdk = new DiscordSDK(import.meta.env.VITE_CLIENT_ID);
 } else {
+  // 埋め込み実行ではない状態のモックをするための記述。
   // We're using session storage for user_id, guild_id, and channel_id
   // This way the user/guild/channel will be maintained until the tab is closed, even if you refresh
   // Session storage will generate new unique mocks for each tab you open
